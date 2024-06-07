@@ -37,14 +37,13 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-
-- task: NuGetCommand@2
-  displayName: 'Restore project dependencies'
+- task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    restoreSolution: '**/*.sln'
+    projects: '**/*.sln'
     feedsToUse: 'select'
-    vstsFeed: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'
+    vstsFeed: '16a46f54-00b3-4c6b-80f4-665fcda9f09f/efd4ccb9-feaa-4998-b24f-1514df43fe1f'
+
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
